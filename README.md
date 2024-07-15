@@ -10,7 +10,7 @@ Fique a vontade para usá-lo. Basta clonar o repo, criar um arquivo `config.prop
 
 ![img.png](src/main/java/com/bot/assets/img.png)
 
-
+#### Comandos
 Por enquanto o bot conta apenas com quatro comandos principais:
 
 `/regras <nome_da_regra>`: Retorna alguma regra do jogo usando o nome

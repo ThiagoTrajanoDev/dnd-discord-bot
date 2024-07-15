@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 import java.awt.*;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,23 +30,7 @@ public class Regras implements  ICommand{
             "Using Each Ability"
     };
 
-    List<String> indexes = List.of(  "ability-scores-and-modifiers", "actions-in-combat",
-            "activating-an-item", "advantage-and-disadvantage", "attunement",
-            "cover", "damage-and-healing",
-            "diseases", "fantasy-historical-pantheons", "madness",
-            "mounted-combat", "movement", "objects", "poisons",
-            "proficiency-bonus", "resting", "saving-throws", "sentient-magic-items",
-            "standard-exchange-rates", "the-order-of-combat",
-            "the-planes-of-existence", "traps", "underwater-combat",
-            "using-each-ability");
-
     private String regra = "";
-
-    private String getIndex(String word) throws ArrayIndexOutOfBoundsException{
-        return indexes.get(List.of(words).indexOf(word));
-    }
-
-
 
     @Override
     public String getName() {
@@ -66,11 +51,11 @@ public class Regras implements  ICommand{
 
     @Override
     public void execute(SlashCommandInteractionEvent event) {
-        event.deferReply().queue();;
+        event.deferReply().queue();
         OptionMapping optionMapping = event.getOption("regra");
         String ruleName = "";
         if(optionMapping != null){
-            regra = getIndex(optionMapping.getAsString());
+            regra = optionMapping.getAsString().replace(" ", "-").toLowerCase();
             ruleName = optionMapping.getAsString();
         }
         String url = String.format("https://www.dnd5eapi.co/api/rule-sections/%s", regra);

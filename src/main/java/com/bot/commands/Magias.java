@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 
 
 public class Magias implements ICommand {
-    private String[] words = {"barbarian","bard","cleric","druid","fighter","monk","paladin","ranger","rogue","sorcerer","warlock","wizard"};
+    private final String[] words = {"barbarian","bard","cleric","druid","fighter","monk","paladin","ranger","rogue","sorcerer","warlock","wizard"};
     private String classe = "";
     private String level = "";
 
@@ -38,15 +38,17 @@ public class Magias implements ICommand {
             embed.setTitle(String.format("Magias de %s - Level %s", classe, level));
             embed.setDescription("Lista de magias de uma classe em determinado level");
             embed.setColor(Color.BLUE);
-            if (spells.getResults().isEmpty()){
-                throw new RuntimeException();
-            }
+
             for(HashMap<String,String>spell : spells.getResults()) {
                     embed.addField(spell.get("name"),"",false);
             }
-            event.getChannel().sendMessageEmbeds(embed.build()).queue();
-        } catch (Exception e) {
+            if (!spells.getResults().isEmpty()){
+                event.getChannel().sendMessageEmbeds(embed.build()).queue();
+                return;
+            }
             event.reply("Não encontrado").queue();
+        } catch (Exception e) {
+            event.reply("Ocorre um erro, tente novamente!").queue();
             throw new RuntimeException(e);
         }
 

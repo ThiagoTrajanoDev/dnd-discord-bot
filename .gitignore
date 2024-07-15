@@ -39,3 +39,6 @@ build/
 
 ### HIDE DISCORD TOKEN ###
 config.properties
+
+### self ###
+.gitignore

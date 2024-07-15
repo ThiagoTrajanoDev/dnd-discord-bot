@@ -1,9 +1,7 @@
 package com.bot.commands;
 
 import com.bot.RequestManager.ClassParser;
-import com.bot.RequestManager.RequestManager;
-import com.bot.mappers.SpellMap;
-import com.google.gson.Gson;
+import com.bot.mappers.SpellListMap;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -13,7 +11,6 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 import java.awt.*;
-import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,7 +32,7 @@ public class Magias implements ICommand {
         }
         try {
             String url = String.format("https://www.dnd5eapi.co/api/classes/%s/levels/%s/spells",classe, level);
-            SpellMap spells = ClassParser.fromJson(url, new SpellMap());
+            SpellListMap spells = ClassParser.fromJson(url, new SpellListMap());
 
             EmbedBuilder embed = new EmbedBuilder();
             embed.setTitle(String.format("Magias de %s - Level %s", classe, level));

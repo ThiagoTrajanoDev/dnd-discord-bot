@@ -1,9 +1,6 @@
 package com.bot;
 
-import com.bot.commands.CommandManager;
-import com.bot.commands.Condicoes;
-import com.bot.commands.Magias;
-import com.bot.commands.Regras;
+import com.bot.commands.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -20,6 +17,7 @@ public class Main {
         commandManager.addCommand(new Magias());
         commandManager.addCommand(new Condicoes());
         commandManager.addCommand(new Regras());
+        commandManager.addCommand(new Magia());
         jda.addEventListener(commandManager);
 
     }

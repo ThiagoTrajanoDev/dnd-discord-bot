@@ -19,3 +19,4 @@ Por enquanto o bot conta apenas com três comandos principais:
 
 `/condicoes <nome_da_condicao>`: Retorna a condição especificada pelo nome
 
+`/magia <nome_da_magia>` : Retorna dados sobre uma magia. Como são muitas magias não tenho como colocar lista de sugestão de possiveis valores no discord (máx 25), dessa forma, caso não saiba o nome da magia, é recomendado que use o comando `/magias` para buscar uma magia especifica, copiar e colar nesse comando.

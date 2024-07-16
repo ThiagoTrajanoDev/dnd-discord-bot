@@ -11,8 +11,7 @@ public class Token {
 
     static {
         Properties properties = new Properties();
-        try {
-            FileInputStream fileInputStream = new FileInputStream("config.properties");
+        try (FileInputStream fileInputStream = new FileInputStream("config.properties")){
             properties.load(fileInputStream);
             DISCORD_BOT_TOKEN = properties.getProperty("DISCORD_BOT_TOKEN");
         }

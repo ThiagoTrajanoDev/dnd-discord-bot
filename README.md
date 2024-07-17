@@ -13,7 +13,7 @@ Fique a vontade para usá-lo. Basta clonar o repo, criar um arquivo `config.prop
 #### Comandos
 Por enquanto o bot conta apenas com quatro comandos principais:
 
-`/regras <nome_da_regra>`: Retorna alguma regra do jogo usando o nome
+`/regras <nome_da_regra>`: Retorna alguma regra do especificada pelo nome (maioria das regras são muito grandes, falta paginação)
 
 Exemplo:
 
